@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState,useContext} from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Category from "./Category";
+import { ApiProducts } from "../Contexts/AllProductContext";
 
 const Search = () => {
   const [productName, setProductName] = useState("");
   const navigate =useNavigate()
+  const { setCategoryClicked } = useContext(ApiProducts);
   const [, setSearchParams] = useSearchParams();
   const [categoryActive, setCategoryActive] = useState(false);
 
@@ -35,6 +37,7 @@ const Search = () => {
             setSearchParams({ title: productName });
             navigate(`/products?title=${productName}`);
             setProductName('');
+            setCategoryClicked('')
           }}
         >
           <span className="material-symbols-outlined search-button">

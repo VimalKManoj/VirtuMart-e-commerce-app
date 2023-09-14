@@ -9,7 +9,7 @@ const Navigation = () => {
       <div className="logo-title">
         <a href="#top"></a>
         <img src="/logo.png" className="main-logo" />
-        VirtuMart {process.env.REACT_APP_NAME}
+        VirtuMart
       </div>
       <div className="nav-items">
         <NavLink to={"/"}>Home</NavLink>

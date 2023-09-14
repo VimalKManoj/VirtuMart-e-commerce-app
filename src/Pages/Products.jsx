@@ -4,9 +4,29 @@ import { ApiProducts } from "../Contexts/AllProductContext";
 import { useSearchParams } from "react-router-dom";
 
 const Products = () => {
-  // const [products, setProducts] = useState(null);
+  const [allProducts, setAllProducts] = useState(null);
   const [title, setTitle] = useState("");
-  const { allProducts, categoryClicked } = useContext(ApiProducts);
+  const { categoryClicked } = useContext(ApiProducts);
+
+  const getProducts = async () => {
+      try {
+        const res = await fetch("https://dummyjson.com/products");
+        const data = await res.json();
+        setAllProducts(data.products);
+        // console.log(products);
+      } catch (error) {
+        setAllProducts([]);
+        console.log(error);
+      }
+    };
+    
+    useEffect(() => {
+      getProducts();
+      // setProducts(allProducts)
+      // console.log(allProducts);
+    }, []);
+
+
   console.log(allProducts)
   const [searchParams] = useSearchParams();
   for (const params of searchParams.entries()) {
