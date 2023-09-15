@@ -5,50 +5,43 @@ import { useSearchParams } from "react-router-dom";
 
 const Products = () => {
   const [allProducts, setAllProducts] = useState(null);
-  const [title, setTitle] = useState("");
-  const { categoryClicked } = useContext(ApiProducts);
-
-  const getProducts = async () => {
-      try {
-        const res = await fetch("https://dummyjson.com/products");
-        const data = await res.json();
-        setAllProducts(data.products);
-        // console.log(products);
-      } catch (error) {
-        setAllProducts([]);
-        console.log(error);
-      }
-    };
-    
-    useEffect(() => {
-      getProducts();
-      // setProducts(allProducts)
-      // console.log(allProducts);
-    }, []);
-
-
-  console.log(allProducts)
+  // const [title, setTitle] = useState("");
+  const { title ,setTitle } = useContext(ApiProducts);
   const [searchParams] = useSearchParams();
-  for (const params of searchParams.entries()) {
-    console.log(params)
-  }
+  const getProducts = async () => {
+    try {
+      const res = await fetch("https://dummyjson.com/products");
+      const data = await res.json();
+      setAllProducts(data.products);
+      // console.log(products);
+    } catch (error) {
+      setAllProducts([]);
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  console.log(allProducts);
+
   // console.log(searchParams)
   useEffect(() => {
     for (const params of searchParams.entries()) {
       setTitle(params);
     }
   }, [searchParams]);
-  
+
   // console.log(allProducts)
   return (
     <div className="product-wrapper">
-      {categoryClicked || title ? (
+      {title ? (
         allProducts
           ?.filter(
             (product) =>
-              (categoryClicked && product.category === categoryClicked) ||
-              (title &&
-                product.title.toLowerCase().includes(title[1].toLowerCase()))
+              title &&
+              product.title.toLowerCase().includes(title[1].toLowerCase())
           )
           .map((product) => <Card key={product.id} product={product} />)
       ) : allProducts !== null ? (

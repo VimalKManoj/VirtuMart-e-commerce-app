@@ -4,7 +4,7 @@ import Products from "../Pages/Products";
 import Home from "../Pages/Home";
 import Cart from "../Pages/Cart";
 import Product from '../Pages/Product';
-import AllProductContext from '../Contexts/AllProductContext';
+import Category from '../Components/Category';
 
 const RouterComponent = () => {
   return (
@@ -13,6 +13,7 @@ const RouterComponent = () => {
       <Route path="/products" element={<Products />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="products/product/:id" element={<Product/>}/>
+      <Route path="/category" element={<Category/>}/>
     </Routes>
   );
 };

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Search from "./Search";
+import { ApiProducts } from "../Contexts/AllProductContext";
 
 const Navigation = () => {
-  
+  const { setTitle, setCategoryClicked } = useContext(ApiProducts);
   return (
     <div className="navigation-container">
       <div className="logo-title">
@@ -13,9 +14,17 @@ const Navigation = () => {
       </div>
       <div className="nav-items">
         <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/products"}>Products</NavLink>
+        <NavLink
+          to={"/products"}
+          onClick={() => {
+            setCategoryClicked("");
+            setTitle('')
+          }}
+        >
+          Products
+        </NavLink>
       </div>
-      <Search/>
+      <Search />
       <div className="cart">
         <NavLink to={"/cart"}>
           <span className="material-symbols-outlined">local_mall</span>

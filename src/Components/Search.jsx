@@ -1,12 +1,12 @@
-import React, { useState,useContext} from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import Category from "./Category";
+import Category from "./CategoryDropDown";
 import { ApiProducts } from "../Contexts/AllProductContext";
 
 const Search = () => {
   const [productName, setProductName] = useState("");
-  const navigate =useNavigate()
-  const { setCategoryClicked } = useContext(ApiProducts);
+  const navigate = useNavigate();
+  const { categoryClicked ,setCategoryClicked } = useContext(ApiProducts);
   const [, setSearchParams] = useSearchParams();
   const [categoryActive, setCategoryActive] = useState(false);
 
@@ -22,13 +22,13 @@ const Search = () => {
             setCategoryActive(!categoryActive, e.stopPropagation())
           }
         >
-          All<span className="material-symbols-outlined">arrow_drop_down</span>
+          {categoryClicked?(<div>{categoryClicked}</div>):(<div>All</div>)}<span className="material-symbols-outlined">arrow_drop_down</span>
         </button>
 
         <input
           placeholder="Search By Title"
           className="search"
-          value ={productName}
+          value={productName}
           onChange={(e) => setProductName(e.target.value)}
         />
         <button
@@ -36,8 +36,8 @@ const Search = () => {
           onClick={() => {
             setSearchParams({ title: productName });
             navigate(`/products?title=${productName}`);
-            setProductName('');
-            setCategoryClicked('')
+            setProductName("");
+            setCategoryClicked("");
           }}
         >
           <span className="material-symbols-outlined search-button">
