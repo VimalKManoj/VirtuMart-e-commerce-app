@@ -24,7 +24,7 @@ const CategoryDropDown = ({ setCategoryActive }) => {
     const id = e.target.id;
     console.log(id)
     setCategoryClicked(id);
-    setSearchParams( {category : id});
+    setSearchParams( {category: id});
     navigate(`/category?category=${id}`);
     setCategoryActive(!setCategoryActive);
 

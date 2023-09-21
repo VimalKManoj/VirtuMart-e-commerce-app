@@ -7,13 +7,14 @@ const Navigation = () => {
   const { setTitle, setCategoryClicked } = useContext(ApiProducts);
   return (
     <div className="navigation-container">
-      <div className="logo-title">
+      
+      <NavLink to={"/"}><div className="logo-title">
         <a href="#top"></a>
         <img src="/logo.png" className="main-logo" />
         VirtuMart
-      </div>
+      </div></NavLink>
       <div className="nav-items">
-        <NavLink to={"/"}>Home</NavLink>
+        {/* <NavLink to={"/"}>Home</NavLink> */}
         <NavLink
           to={"/products"}
           onClick={() => {

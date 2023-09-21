@@ -3,17 +3,24 @@
 
 html{
   scroll-behavior: smooth;
+
 }
-/* marquee */
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+
+}
+
 .marquee {
-  /* margin: 0 auto; */
-  width: 100vw;
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   position: absolute;
+  right: 0;
   background-color: black;
-  padding: 3px 0px;
-  margin-top: 10px;
+ 
   color: white;
 }
 
@@ -36,11 +43,7 @@ html{
   }
 }
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 body {
   
@@ -69,7 +72,7 @@ code {
 }
 
 .search{
-  width: 22rem;
+  width: 22vw;
   padding-left: 1rem;
   height: 2.2rem;
   border: none;
@@ -115,7 +118,7 @@ code {
   
   z-index: 999;
   top: 8.9vh;
-  right: 262px;
+  right: 230px;
   background-color: #FFFAFA;
   animation: scale .5s ease-in-out forwards;
   box-shadow: 1px 1px 1rem rgb(146, 144, 144) ;
@@ -154,8 +157,9 @@ code {
 
 .navigation-container {
   display: flex;
+  width: 100%;
   justify-content: space-between;
-  padding: 0.7rem;
+  /* padding: 0.4rem; */
   align-items: center;
   font-family: "Raleway", sans-serif;
   border-bottom: 2px solid black;
@@ -163,10 +167,8 @@ code {
 
 .logo-title {
   display: flex;
-  padding-left: 3rem;
+  padding-left: 1rem;
   font-family: 'Cinzel', serif;
-
-
   /* font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; */
   font-size: 2rem;
   justify-content: center;
@@ -174,7 +176,7 @@ code {
 }
 
 .main-logo{
-  height: 3.7rem;
+  height: 3.1rem;
 
 }
 
@@ -195,7 +197,7 @@ code {
 
 .nav-items {
   display: flex;
-  padding-right: 10rem;
+  padding-right: 5rem;
   justify-content: space-around;
   width: 14rem;
   font-size: 1.5rem;
@@ -225,7 +227,7 @@ flex-direction: column;
 }
 
 .motto{
-  width: 100vw;
+  width: 100%;
   margin-top: 20px;
   height: 12rem;
   display: flex;
@@ -315,8 +317,8 @@ flex-direction: column;
 }
 
 .image-wrapper img {
-  /* padding-top: -50px; */
-  height: 40rem;
+  padding-top:1rem;
+  height: 36rem;
 }
 
 .text-wrapper button {
@@ -596,5 +598,13 @@ border-radius: 20px;
   height: 2.5rem;
   margin-bottom: 0px;
 width:100%
+}
+
+@media (max-width:480px){
+  
+}
+
+@media (max-width:768px){
+  
 }
 

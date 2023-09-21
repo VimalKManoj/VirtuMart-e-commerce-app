@@ -1,9 +1,29 @@
-import React from "react";
+import React ,{useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 const Home = () => {
+  const [loading ,setLoading ] =useState(false)
+  const navigate =useNavigate("")
+
+  useEffect(() =>{
+    setLoading(true)
+    setTimeout(()=>{
+      setLoading(false)
+    },3000)
+  }, [])
+
+  const handleClick = (e) =>{
+    navigate("/products")
+    e.stopPropagation()
+  } 
+
   return (
-    <div className="home">
-      <div className="home-banner">
+   <div className="home">
+    {loading?(<>
+      <PropagateLoader color="#f3e5b8" style={{zIndex:'999' ,display:'flex', justifyContent:"center" ,alignItems:'center'}}/>
+      <div style={{position:'absolute',height:'100vh' , width:'100vw', backgroundColor:"white" ,zIndex:'998'}}>
+</div></>):(<div><div className="home-banner">
         <div className="scroll-text">
           <p class="marquee">
             <span>
@@ -37,7 +57,7 @@ const Home = () => {
             Shop Our<span className="discover">Discover the Latest Trends</span>
             <span className="trending"> Trending</span> Products
           </p>
-          <button className="shop-now">Shop Now</button>
+          <button className="shop-now" onClick={handleClick}>Shop Now</button>
         </div>
       </div>
       <div className="motto">
@@ -51,8 +71,10 @@ const Home = () => {
         <div className="trending-category-wrapper">
 
         </div>
-      </div>
+      </div></div>)}
+      
     </div>
+    
   );
 };
 
