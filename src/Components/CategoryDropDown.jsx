@@ -1,4 +1,4 @@
-import React, { useContext, useState, useSyncExternalStore } from "react";
+import React, { useContext, useState } from "react";
 import { ApiProducts } from "../Contexts/AllProductContext";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const CategoryDropDown = ({ setCategoryActive }) => {
 
   const handleCategory = (e) => {
     const id = e.target.id;
-    console.log(id)
+    
     setCategoryClicked(id);
     setSearchParams( {category: id});
     navigate(`/category?category=${id}`);

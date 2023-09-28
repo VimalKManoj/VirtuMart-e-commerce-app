@@ -8,7 +8,8 @@ const Navigation = () => {
   return (
     <div className="navigation-container">
       
-      <NavLink to={"/"}><div className="logo-title">
+      <NavLink to={"/"}>
+        <div className="logo-title">
         <a href="#top"></a>
         <img src="/logo.png" className="main-logo" />
         VirtuMart
