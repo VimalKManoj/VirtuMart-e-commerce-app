@@ -116,7 +116,6 @@ code {
 .category-menu{
   position: absolute;
   width: 29.8vw;
-  
   z-index: 999;
   top: 8.9vh;
   right: 260px;
@@ -399,7 +398,7 @@ overflow: hidden;
   opacity: 1;
   object-fit: cover;
   /* height: 100%; */
-  width: 100%;
+  width: 70%;
   
 }
 
