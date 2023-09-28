@@ -382,13 +382,14 @@ overflow: hidden;
 }
 .category-card:hover {
   flex-direction: row;
+  width: 100%;
   flex: 3;
   background:#ffffff;
 }
 
 .category-card img{
   object-fit: cover;
-  width: 100%;
+  width: 75%;
   /* opacity: 0; */
   /* visibility: hidden; */
   transition: 0.2s;
@@ -398,7 +399,7 @@ overflow: hidden;
   opacity: 1;
   object-fit: cover;
   /* height: 100%; */
-  width: 70%;
+  width: 75%;
   
 }
 
