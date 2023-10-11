@@ -79,17 +79,9 @@ const Home = () => {
                 </span>
               </p>
             </div>
-            <div
-              style={{
-                display: "flex",
-                width: "100vw",
-                maxWidth: "100%",
-                overflow: "hidden",
-              }}
-            >
+            <div className="whole-home">
               <div className="image-wrapper">
                 <img src="/backimg.png" />
-                {/* <div className="circle"></div> */}
               </div>
               <div className="text-wrapper">
                 <p>
@@ -98,6 +90,22 @@ const Home = () => {
                   <span className="trending"> Trending</span> Products
                 </p>
                 <button className="shop-now" onClick={handleClick}>
+                  Shop Now
+                </button>
+              </div>
+            </div>
+            <div className="whole-home-mobile">
+              <div className="image-wrapper-mobile">
+                <img src="/backimg.png" />
+              </div>
+              <div className="text-wrapper-mobile">
+              <span className="discover">Discover the Latest Trends</span>
+
+                <p>
+                  Shop Our
+                  <span className="trending"> Trending</span> Products
+                </p>
+                <button className="shop-now-mobile" onClick={handleClick}>
                   Shop Now
                 </button>
               </div>
